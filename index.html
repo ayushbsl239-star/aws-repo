@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valence AI — Applied AI Systems for Learning, Automation, and Enterprise</title>
+  <meta name="description" content="Valence AI builds practical, safe, and adaptive AI systems for learning, productivity, and enterprise automation. Featuring Class Mode, Epoch Forms, and Gemini Mesh.">
+  <meta name="keywords" content="AI, Artificial Intelligence, Adaptive Learning, Form Automation, Multi-Agent Orchestration, Enterprise AI, AI Safety">
+  <meta name="theme-color" content="#06080D">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Valence AI — Applied AI Systems for Real Work">
+  <meta property="og:description" content="Practical, safe, and adaptive AI systems: Class Mode, Epoch Forms, and Gemini Mesh. Built for students, businesses, and enterprise engineering.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       GLOBAL NAVIGATION
+       ================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" id="navBrandLogo">
+        <div class="brand-icon">
+          <!-- Hexagonal neural bond mark -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 8.5 2 15.5 12 22 22 15.5 22 8.5 12 2"></polygon>
+            <line x1="12" y1="22" x2="12" y2="15.5"></line>
+            <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+            <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+            <line x1="12" y1="2" x2="12" y2="8.5"></line>
+          </svg>
+        </div>
+        <span>VALENCE <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.95rem;">AI</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="mainNavLinks">
+          <li>
+            <a href="#class-mode" class="nav-link">
+              <span class="pill-indicator pill-class"></span>
+              Class Mode
+            </a>
+          </li>
+          <li>
+            <a href="#epoch-forms" class="nav-link">
+              <span class="pill-indicator pill-epoch"></span>
+              Epoch Forms
+            </a>
+          </li>
+          <li>
+            <a href="#gemini-mesh" class="nav-link">
+              <span class="pill-indicator pill-mesh"></span>
+              Gemini Mesh
+            </a>
+          </li>
+          <li><a href="#values" class="nav-link">Values</a></li>
+          <li><a href="#trust" class="nav-link">Trust & Security</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle visual theme" title="Toggle dark/light mode">
+          <svg id="themeToggleIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="btn btn-secondary btn-sm" data-open-modal="general" id="navContactBtn">
+          Talk to Us
+        </button>
+
+        <button class="btn btn-primary btn-sm" data-open-modal="gemini-mesh" id="navGetStartedBtn">
+          Request Access
+        </button>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================================================================
+       HERO SECTION
+       ================================================================= -->
+  <section class="section section-hero" id="hero">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span class="pulse-dot"></span>
+            Applied Intelligence Systems 2026
+          </div>
+
+          <h1 class="hero-headline">
+            AI systems built for real work — <span class="gradient-text-brand">learning, automation, and collaboration.</span>
+          </h1>
+
+          <p class="hero-subhead">
+            We build practical, safe, and adaptive AI systems for modern learning, automated workflows, and enterprise orchestration. Three focused products engineered with deterministic guardrails and zero-retention privacy.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products-overview" class="btn btn-primary btn-lg" id="heroExploreBtn">
+              Explore Our Products
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <button class="btn btn-secondary btn-lg" data-open-modal="general" id="heroDemoBtn">
+              Request Platform Demo
+            </button>
+          </div>
+
+          <div class="hero-metrics-strip">
+            <div class="metric-item">
+              <span class="metric-val">3</span>
+              <span class="metric-lbl">Applied AI Engines</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">100%</span>
+              <span class="metric-lbl">Zero Data Retention</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">&lt; 150ms</span>
+              <span class="metric-lbl">Inference Latency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Neural Mesh Hero Visual -->
+        <div class="hero-visual-card">
+          <div class="canvas-container">
+            <canvas id="neuralHeroCanvas"></canvas>
+
+            <div class="canvas-node-badges">
+              <span class="node-hud-chip" style="background: var(--class-subtle); color: var(--class-accent); border: 1px solid var(--class-border);">
+                <span class="pill-indicator pill-class"></span> Class Mode
+              </span>
+              <span class="node-hud-chip" style="background: var(--epoch-subtle); color: var(--epoch-accent); border: 1px solid var(--epoch-border);">
+                <span class="pill-indicator pill-epoch"></span> Epoch Forms
+              </span>
+              <span class="node-hud-chip" style="background: var(--mesh-subtle); color: var(--mesh-accent); border: 1px solid var(--mesh-border);">
+                <span class="pill-indicator pill-mesh"></span> Gemini Mesh
+              </span>
+            </div>
+
+            <div class="canvas-overlay-telemetry">
+              <div class="telemetry-node-live">
+                <span class="pulse-dot" style="background: #10B981; width: 6px; height: 6px;"></span>
+                <span>Topology: Tri-Engine Active Cluster</span>
+              </div>
+              <div>Consensus: 99.98% • Latency: 12ms</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 2: PRODUCTS OVERVIEW
+       ================================================================= -->
+  <section class="section" id="products-overview">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge badge-brand">Product Ecosystem</span>
+        <h2 class="section-title">Three distinct solutions. One rigorous standard.</h2>
+        <p class="section-desc">
+          Each product is engineered from the ground up to solve an acute real-world challenge through purpose-built models, strict auditability, and human-in-the-loop oversight.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Card 1: Class Mode -->
+        <article class="product-card card-class" id="cardClassMode">
+          <div class="product-card-top">
+            <div class="product-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="product-name-row">
+              <h3 class="product-name">Class Mode</h3>
+              <span class="product-audience-tag">Students • Educators</span>
+            </div>
+            <p class="product-tagline">"Learning that adapts to you"</p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Personalized 1:1 AI tutoring system that continuously diagnoses comprehension gaps and tailors curriculum pacing in real time.
+            </p>
+            <ul class="product-bullets">
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Socratic 1:1 Tutoring:</strong> Guides students through critical reasoning rather than handing out raw answers.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Dynamic Diagnostic Exams:</strong> Synthesizes practice quizzes targeted at personal edge-case weaknesses.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Educator Cockpit:</strong> Live classroom analytics detecting mastery roadblocks across cohorts.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="product-card-cta">
+            <a href="#class-mode" class="learn-more-link" id="linkLearnClassMode">
+              Explore Class Mode
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <button class="btn btn-outline-class btn-sm" data-open-modal="class-mode">Start Free</button>
+          </div>
+        </article>
+
+        <!-- Card 2: Epoch Forms -->
+        <article class="product-card card-epoch" id="cardEpochForms">
+          <div class="product-card-top">
+            <div class="product-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="product-name-row">
+              <h3 class="product-name">Epoch Forms</h3>
+              <span class="product-audience-tag">HR • Ops • Legal</span>
+            </div>
+            <p class="product-tagline">"Never fill out a form by hand again"</p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Vision-powered document comprehension agent that reads PDF, scanned, and web forms, auto-mapping structured user data with zero hallucinations.
+            </p>
+            <ul class="product-bullets">
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Multi-Format Ingestion:</strong> Understands complex multi-column PDFs, bad phone scans, and web DOM trees.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Encrypted Vault Integration:</strong> Pulls securely from verified enterprise repositories without storing plain text.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Explainable Confidence Scores:</strong> Color-codes exact document citations for every populated field.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="product-card-cta">
+            <a href="#epoch-forms" class="learn-more-link" id="linkLearnEpochForms">
+              Explore Epoch Forms
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <button class="btn btn-outline-epoch btn-sm" data-open-modal="epoch-forms">Try It Free</button>
+          </div>
+        </article>
+
+        <!-- Card 3: Gemini Mesh -->
+        <article class="product-card card-mesh" id="cardGeminiMesh">
+          <div class="product-card-top">
+            <div class="product-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+            </div>
+            <div class="product-name-row">
+              <h3 class="product-name">Gemini Mesh</h3>
+              <span class="product-audience-tag">Engineering • Enterprise</span>
+            </div>
+            <p class="product-tagline">"Multi-agent AI, built for the enterprise"</p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Industrial-strength multi-agent orchestration fabric. Coordinates autonomous agents executing complex workflows with deterministic guardrails.
+            </p>
+            <ul class="product-bullets">
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Consensus DAG Scheduling:</strong> Dynamically splits high-stakes enterprise tasks across specialized sub-agents.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Deterministic Sandboxing:</strong> Restricts tool execution and API dispatch within strict VPC boundaries.</span>
+              </li>
+              <li class="product-bullet">
+                <span class="bullet-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span><strong>Cryptographic Audit Trails:</strong> Every agent reasoning step is hashed and verifiable for compliance officers.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="product-card-cta">
+            <a href="#gemini-mesh" class="learn-more-link" id="linkLearnGeminiMesh">
+              Explore Gemini Mesh
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <button class="btn btn-outline-mesh btn-sm" data-open-modal="gemini-mesh">Request Access</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 3: INDIVIDUAL PRODUCT DEEP DIVE: CLASS MODE
+       ================================================================= -->
+  <section class="section product-deepdive" id="class-mode">
+    <div class="container">
+      <div class="split-layout">
+        <div>
+          <span class="section-badge badge-class">Adaptive Education Engine</span>
+          <h2 class="section-title">Class Mode: Learning that adapts to you.</h2>
+          <p class="section-desc" style="margin-bottom: 2rem;">
+            Traditional classrooms teach to the median. Class Mode rebuilds learning around each student’s unique conceptual trajectory. By combining pedagogical reinforcement models with real-time comprehension telemetry, Class Mode provides the patience, insight, and responsiveness of an elite private tutor.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-class btn-lg" data-open-modal="class-mode" id="btnClassModeCTA">
+              Start Learning Free
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <button class="btn btn-secondary btn-lg" data-open-modal="class-mode-district">
+              Schedule School District Pilot
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Class Mode Tutor Simulator -->
+        <div class="simulator-box" id="classModeSimulator">
+          <div class="simulator-header">
+            <div class="sim-window-dots">
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+            </div>
+            <div class="sim-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              <span>ClassMode // Socratic Adaptive Runtime</span>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--class-accent); font-family: var(--font-mono);">
+              ● LIVE SESSION
+            </div>
+          </div>
+
+          <div class="tutor-sim-body">
+            <!-- Subject Switcher -->
+            <div class="sim-subject-tabs">
+              <button class="sim-subject-btn active" data-subject="calculus">AP Calculus</button>
+              <button class="sim-subject-btn" data-subject="biochem">Cell Biology</button>
+              <button class="sim-subject-btn" data-subject="python">Systems: Asyncio</button>
+            </div>
+
+            <!-- AI Tutor Message Bubble -->
+            <div class="tutor-dialogue-card">
+              <div class="tutor-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+              </div>
+              <div class="tutor-bubble" id="tutorSimText">
+                "Let’s test your conceptual intuition on rate composition before we advance to multi-variable differentiation."
+              </div>
+            </div>
+
+            <!-- Dynamic Question Container -->
+            <div class="sim-question-box">
+              <div class="sim-question-text" id="simQuestionText">
+                If water is pumped into a conical tank at 3 m³/min, what happens to the rate of rise (dh/dt) as water depth increases?
+              </div>
+              <div class="sim-options-grid" id="simOptionsContainer">
+                <!-- Injected via main.js -->
+              </div>
+            </div>
+
+            <!-- Adaptive Feedback Container -->
+            <div class="sim-feedback-card" id="simFeedbackCard"></div>
+
+            <!-- Telemetry Footer -->
+            <div class="sim-telemetry-bar">
+              <div>
+                <span>Knowledge Graph Pacing:</span>
+                <span class="mastery-progress-track">
+                  <div class="mastery-progress-fill" id="masteryProgressFill" style="width: 84%;"></div>
+                </span>
+                <strong id="masteryProgressVal" style="color: var(--class-accent); margin-left: 0.5rem;">84%</strong>
+              </div>
+              <div>Spaced Repetition: Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works: 3 Steps -->
+      <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">How Class Mode Works</h3>
+      <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem;">Three continuous closed-loop stages that eliminate conceptual debt</p>
+
+      <div class="how-it-works-grid">
+        <div class="step-card step-card-class">
+          <span class="step-num">STEP 01</span>
+          <h4 class="step-title">1. Assess & Diagnose</h4>
+          <p class="step-desc">
+            Rather than relying on standardized multiple-choice tests, Class Mode assesses student reasoning steps line-by-line to pinpoint precise conceptual misconceptions.
+          </p>
+        </div>
+        <div class="step-card step-card-class">
+          <span class="step-num">STEP 02</span>
+          <h4 class="step-title">2. Personalize & Scaffold</h4>
+          <p class="step-desc">
+            Generates personalized micro-lessons using multiple modalities (geometric intuition, coding analogies, or historical context) tailored to how that student absorbs ideas fastest.
+          </p>
+        </div>
+        <div class="step-card step-card-class">
+          <span class="step-num">STEP 03</span>
+          <h4 class="step-title">3. Improve & Retain</h4>
+          <p class="step-desc">
+            Embeds spaced-repetition retrieval practice directly into subsequent assignments, cementing long-term memory and providing verifiable proof of mastery.
+          </p>
+        </div>
+      </div>
+
+      <!-- Testimonial Quote -->
+      <div style="background: var(--bg-card); border: 1px solid var(--class-border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2rem; margin-top: 2rem;">
+        <div style="font-size: 3rem; color: var(--class-accent); line-height: 1;">“</div>
+        <div>
+          <p style="font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 0.75rem;">
+            "Our high school students using Class Mode improved their calculus AP scores by an average of 1.4 letter grades. It doesn't give them answers; it teaches them how to think through complex problems."
+          </p>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">
+            Dr. Evelyn Vance — Superintendent of STEM Curriculum, Oakridge Academy
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 4: INDIVIDUAL PRODUCT DEEP DIVE: EPOCH FORMS
+       ================================================================= -->
+  <section class="section product-deepdive" id="epoch-forms">
+    <div class="container">
+      <div class="split-layout">
+        <div>
+          <span class="section-badge badge-epoch">Vision Automation Agent</span>
+          <h2 class="section-title">Epoch Forms: Never fill out a form by hand again.</h2>
+          <p class="section-desc" style="margin-bottom: 2rem;">
+            Repetitive document intake drains thousands of hours from HR teams, patients, and legal operations. Epoch Forms uses multimodal vision models and enterprise schema mapping to parse any document format—crooked phone scans, complex government PDFs, or unstandardized web portals—and accurately populates them in sub-second speed.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-epoch btn-lg" data-open-modal="epoch-forms" id="btnEpochFormsCTA">
+              Try Epoch Forms Free
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <button class="btn btn-secondary btn-lg" data-open-modal="epoch-forms-api">
+              Explore REST & Webhook API
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Epoch Forms Auto-Fill Simulator -->
+        <div class="simulator-box" id="epochFormsSimulator">
+          <div class="simulator-header">
+            <div class="sim-window-dots">
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+            </div>
+            <div class="sim-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              <span>Epoch Forms // Multimodal Ingestion Agent</span>
+            </div>
+            <select class="form-select" id="epochDocSelect" style="padding: 0.25rem 0.6rem; font-size: 0.72rem; width: auto; background: var(--bg-surface); border: 1px solid var(--border-medium); color: var(--text-primary); border-radius: var(--radius-xs);">
+              <option value="w4">IRS Form W-4 (2026)</option>
+              <option value="clinical">Clinical Intake (HIPAA)</option>
+              <option value="vendor">Enterprise Vendor KYC</option>
+            </select>
+          </div>
+
+          <div class="epoch-sim-wrapper">
+            <!-- Simulated Input Document -->
+            <div class="doc-preview-pane">
+              <div class="doc-pane-header">
+                <span id="epochDocFileName">IRS_Form_W4_2026.pdf</span>
+                <span style="color: var(--epoch-accent);">OCR Ready</span>
+              </div>
+              <div class="doc-page-simulation">
+                <div style="font-weight: 800; border-bottom: 2px solid #000; padding-bottom: 2px; margin-bottom: 6px;">
+                  DEPARTMENT OF THE TREASURY — IRS
+                </div>
+                <div class="doc-bounding-box" id="bbox1">
+                  <strong>Step 1: Personal Information</strong>
+                  <div style="font-size: 0.65rem; color: #475569;">Name, Address, SSN Verification</div>
+                  <span class="box-tag">99.9%</span>
+                </div>
+                <div class="doc-bounding-box" id="bbox2">
+                  <strong>Step 2: Multiple Jobs / Marital Status</strong>
+                  <div style="font-size: 0.65rem; color: #475569;">Filing Category & Table Matches</div>
+                  <span class="box-tag">99.7%</span>
+                </div>
+                <div class="doc-bounding-box" id="bbox3">
+                  <strong>Step 3: Claim Dependents</strong>
+                  <div style="font-size: 0.65rem; color: #475569;">Child Tax Credit & Calculation</div>
+                  <span class="box-tag">99.4%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auto-fill Fields Matrix -->
+            <div class="extraction-matrix-pane">
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; margin-bottom: 0.65rem; display: flex; justify-content: space-between;">
+                  <span>Auto-Mapped Output Fields</span>
+                  <span style="color: var(--epoch-accent); font-family: var(--font-mono);">Zero Retention Vault</span>
+                </div>
+                <div class="extracted-fields-list" id="epochFieldsContainer">
+                  <!-- Populated via main.js -->
+                </div>
+              </div>
+
+              <div class="epoch-actions-bar">
+                <button class="btn btn-epoch btn-sm" id="runEpochSimBtn" style="width: 100%;">
+                  Simulate Extraction
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works: 3 Steps -->
+      <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">How Epoch Forms Works</h3>
+      <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem;">From raw unstructured paper to verified system of record in seconds</p>
+
+      <div class="how-it-works-grid">
+        <div class="step-card step-card-epoch">
+          <span class="step-num">STEP 01</span>
+          <h4 class="step-title">1. Ingest Any Document</h4>
+          <p class="step-desc">
+            Drag-and-drop PDFs, snap mobile photos of crumpled paperwork, or invoke our Chrome extension on any online web portal form.
+          </p>
+        </div>
+        <div class="step-card step-card-epoch">
+          <span class="step-num">STEP 02</span>
+          <h4 class="step-title">2. Connect Verified Data</h4>
+          <p class="step-desc">
+            Connects to your encrypted personal or company vault (HRIS, CRM, or identity records). Data is processed in an ephemeral enclave and purged instantly.
+          </p>
+        </div>
+        <div class="step-card step-card-epoch">
+          <span class="step-num">STEP 03</span>
+          <h4 class="step-title">3. Review & Submit</h4>
+          <p class="step-desc">
+            Review auto-populated values with side-by-side visual confidence highlights. One click signs, certifies, and submits straight to the destination system.
+          </p>
+        </div>
+      </div>
+
+      <!-- Use Cases Grid -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--epoch-accent);">Human Resources & Onboarding</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            Automate I-9, W-4, benefits enrollment, and background consent forms for 1,000+ new hires without manual data entry errors.
+          </p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--epoch-accent);">Healthcare & Clinical Intake</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            HIPAA-compliant ingestion of medical history, insurance cards, and HIPAA disclosures directly into EHR systems.
+          </p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--epoch-accent);">Legal & Vendor KYC</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            Accelerate supplier onboarding, cross-jurisdiction compliance filings, and complex lease agreement data extraction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 5: INDIVIDUAL PRODUCT DEEP DIVE: GEMINI MESH
+       ================================================================= -->
+  <section class="section product-deepdive" id="gemini-mesh">
+    <div class="container">
+      <div class="split-layout">
+        <div>
+          <span class="section-badge badge-mesh">Enterprise Multi-Agent Fabric</span>
+          <h2 class="section-title">Gemini Mesh: Multi-agent AI, built for the enterprise.</h2>
+          <p class="section-desc" style="margin-bottom: 2rem;">
+            Single-agent prompts break down on complex enterprise workflows. Gemini Mesh provides a secure, distributed runtime where specialized agents collaborate across Directed Acyclic Graphs (DAGs) to solve mission-critical tasks—governed by deterministic guardrails and cryptographic verification.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-mesh btn-lg" data-open-modal="gemini-mesh" id="btnGeminiMeshCTA">
+              Request Platform Access
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <a href="#mesh-developer" class="btn btn-secondary btn-lg">
+              View API Documentation
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Multi-Agent Mesh Simulator -->
+        <div class="simulator-box" id="geminiMeshSimulator">
+          <div class="simulator-header">
+            <div class="sim-window-dots">
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+              <span class="sim-dot"></span>
+            </div>
+            <div class="sim-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              <span>Gemini Mesh // Runtime DAG Inspector</span>
+            </div>
+            <button class="btn btn-mesh btn-sm" id="runMeshSimBtn">
+              Run Multi-Agent Task
+            </button>
+          </div>
+
+          <div class="mesh-sim-body">
+            <!-- Topology Agent Graph -->
+            <div class="mesh-topology-graph">
+              <div class="agent-node" id="agentPlanner">
+                <div class="agent-status-dot"></div>
+                <div class="agent-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                </div>
+                <div class="agent-node-name">Planner</div>
+                <div class="agent-node-role">DAG Decomposition</div>
+              </div>
+
+              <div class="agent-node" id="agentResearch">
+                <div class="agent-status-dot"></div>
+                <div class="agent-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div class="agent-node-name">Research</div>
+                <div class="agent-node-role">VPC Ingestion</div>
+              </div>
+
+              <div class="agent-node" id="agentSynthesis">
+                <div class="agent-status-dot"></div>
+                <div class="agent-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <div class="agent-node-name">Synthesis</div>
+                <div class="agent-node-role">Consensus Engine</div>
+              </div>
+
+              <div class="agent-node" id="agentAuditor">
+                <div class="agent-status-dot"></div>
+                <div class="agent-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="agent-node-name">Auditor</div>
+                <div class="agent-node-role">Safety Guardrail</div>
+              </div>
+
+              <div class="agent-node" id="agentExecution">
+                <div class="agent-status-dot"></div>
+                <div class="agent-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <div class="agent-node-name">Executor</div>
+                <div class="agent-node-role">Deterministic Sandbox</div>
+              </div>
+            </div>
+
+            <!-- Terminal Output Stream -->
+            <div class="mesh-console" id="meshConsoleLogs">
+              <div class="log-entry">
+                <span class="log-time">00:00.001</span>
+                <span class="log-tag">[SYSTEM]</span>
+                <span class="log-msg">Cluster initialized in private US-East-1 VPC. Ready for DAG dispatch.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety & Governance Architecture -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 3rem; margin-bottom: 4rem;">
+        <div style="max-width: 720px; margin-bottom: 2.5rem;">
+          <span class="section-badge badge-mesh">Enterprise Governance</span>
+          <h3 style="font-size: 1.85rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+            Deterministic Guardrails & Human-in-the-Loop Oversight
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 1rem;">
+            Enterprise AI cannot rely on probabilistic hopes. Gemini Mesh introduces mathematical guardrails that enforce organizational policies before and after every agent action.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <div>
+            <div style="color: var(--mesh-accent); margin-bottom: 0.75rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Zero-Retention Enclaves</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Workflows run in isolated cryptographic containers. Customer data is strictly never used to train foundation models.
+            </p>
+          </div>
+
+          <div>
+            <div style="color: var(--mesh-accent); margin-bottom: 0.75rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Human Approval Checkpoints</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Configurable escalation thresholds. High-risk financial, production, or customer-facing operations pause automatically for human signoff.
+            </p>
+          </div>
+
+          <div>
+            <div style="color: var(--mesh-accent); margin-bottom: 0.75rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Cryptographic Audit Logs</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Every tool call, reasoning step, and consensus score is recorded to an immutable ledger for compliance and forensic analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer / API Section -->
+      <div id="mesh-developer">
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <span class="section-badge badge-mesh">Developer SDK</span>
+          <h3 style="font-size: 1.85rem; font-weight: 800; letter-spacing: -0.02em;">Integrate Mesh in 5 lines of code</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Idiomatic SDKs with type safety, automatic retries, and streaming support.</p>
+        </div>
+
+        <div class="code-window">
+          <div class="code-window-bar">
+            <div class="code-tabs">
+              <button class="code-tab-btn active" data-lang="python">python</button>
+              <button class="code-tab-btn" data-lang="typescript">typescript</button>
+              <button class="code-tab-btn" data-lang="curl">cURL</button>
+            </div>
+            <button class="code-copy-btn" id="copyCodeBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="code-body">
+            <pre><code id="apiCodeDisplay"># Loading SDK example...</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 6: WHY US / SHARED VALUES
+       ================================================================= -->
+  <section class="section" id="values">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge badge-brand">Unified Philosophy</span>
+        <h2 class="section-title">Why Valence: Our Core Principles</h2>
+        <p class="section-desc">
+          Across education, automation, and distributed agent mesh, four non-negotiable engineering principles guide every model we deploy.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="value-title">Safety-First Design</h3>
+          <p class="value-desc">
+            We reject the "move fast and break things" paradigm. Our architectures feature formal verification, output bounding, and proactive adversarial red-teaming.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 class="value-title">Human Agency & Oversight</h3>
+          <p class="value-desc">
+            AI is most potent when elevating human judgment. From teachers directing Class Mode to executives approving Gemini Mesh escalations, humans remain in command.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3 class="value-title">Zero-Retention Privacy</h3>
+          <p class="value-desc">
+            Your proprietary documents, student conversations, and enterprise source codes belong solely to you. We never train foundation models on customer prompts.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+          <h3 class="value-title">Real-World Reliability</h3>
+          <p class="value-desc">
+            Our models are tuned for mission-critical predictability: deterministic fallbacks, self-healing retries, and high-availability enterprise SLAs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 7: TRUST, SOCIAL PROOF & METRICS
+       ================================================================= -->
+  <section class="section" id="trust">
+    <div class="container">
+      <div class="trust-metrics-strip">
+        <div class="trust-metric-box">
+          <div class="trust-metric-number" style="color: var(--class-accent);">4.8M+</div>
+          <div class="trust-metric-label">Adaptive Questions Solved</div>
+        </div>
+        <div class="trust-metric-box">
+          <div class="trust-metric-number" style="color: var(--epoch-accent);">1.2M+</div>
+          <div class="trust-metric-label">Form Pages Processed</div>
+        </div>
+        <div class="trust-metric-box">
+          <div class="trust-metric-number" style="color: var(--mesh-accent);">99.99%</div>
+          <div class="trust-metric-label">Gemini Mesh Uptime SLA</div>
+        </div>
+        <div class="trust-metric-box">
+          <div class="trust-metric-number" style="color: var(--brand-primary);">0</div>
+          <div class="trust-metric-label">Data Retention Breaches</div>
+        </div>
+      </div>
+
+      <!-- Security & Regulatory Badges -->
+      <div class="compliance-badges-row">
+        <div class="compliance-badge-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>SOC 2 Type II Certified</span>
+        </div>
+        <div class="compliance-badge-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>HIPAA Compliant Enclave</span>
+        </div>
+        <div class="compliance-badge-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>FERPA Student Privacy Verified</span>
+        </div>
+        <div class="compliance-badge-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>ISO/IEC 27001 Certified</span>
+        </div>
+        <div class="compliance-badge-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>GDPR / CCPA Compliant</span>
+        </div>
+      </div>
+
+      <!-- Customer Testimonials -->
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Gemini Mesh completely revolutionized our financial reconciliation pipeline. We coordinate 14 specialized agents with strict auditing, reducing month-end close from 5 days to 45 minutes."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="color: var(--mesh-accent);">NL</div>
+            <div class="author-info">
+              <span class="author-name">Nathaniel Lewis</span>
+              <span class="author-role">Chief Technology Officer, Apex FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Epoch Forms cut our employee intake processing time by 92%. New hires don't complain about paperwork anymore, and HR zeroed out transcription errors completely."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="color: var(--epoch-accent);">AK</div>
+            <div class="author-info">
+              <span class="author-name">Amara Kingston</span>
+              <span class="author-role">VP of People Operations, Meridian BioHealth</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Our tutoring center deployed Class Mode across 3,200 middle and high school students. The diagnostic accuracy is astonishing. It feels like every child has an empathetic, world-class instructor beside them."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="color: var(--class-accent);">RM</div>
+            <div class="author-info">
+              <span class="author-name">Rachel Morales</span>
+              <span class="author-role">Executive Director of Learning, Horizon Academies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       SECTION 8: PRICING & UNIFIED CONTACT
+       ================================================================= -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge badge-brand">Transparent Licensing</span>
+        <h2 class="section-title">Predictable plans for every scale</h2>
+        <p class="section-desc">
+          Choose a tailored tier per product, or talk to our solutions architects for enterprise-wide bundling.
+        </p>
+
+        <!-- Monthly / Annual Toggle Switch -->
+        <div class="pricing-toggle-wrap">
+          <span class="billing-cycle-label active" data-cycle="monthly">Monthly Billing</span>
+          <div class="toggle-switch" id="pricingCycleToggle" role="button" aria-label="Toggle annual discount" tabindex="0">
+            <div class="toggle-knob"></div>
+          </div>
+          <span class="billing-cycle-label" data-cycle="annual">Annual Billing</span>
+          <span class="discount-pill">Save 20%</span>
+        </div>
+      </div>
+
+      <div class="pricing-cards-grid">
+        <!-- Tier 1: Class Mode -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <span class="plan-product-tag" style="color: var(--class-accent);">Class Mode</span>
+            <h3 class="plan-name">Student Pro</h3>
+            <p class="plan-desc">For individual students and parents seeking personalized 1:1 acceleration.</p>
+          </div>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-price" data-monthly="19">19</span>
+            <span class="plan-period">/ month</span>
+          </div>
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Unlimited 1:1 Socratic AI tutoring</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dynamic adaptive quiz generator</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Comprehensive mastery knowledge graph</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>AP, SAT, and College STEM modules</span>
+            </li>
+          </ul>
+          <button class="btn btn-outline-class" data-open-modal="class-mode" style="width: 100%;">
+            Start 14-Day Trial
+          </button>
+        </div>
+
+        <!-- Tier 2: Epoch Forms -->
+        <div class="pricing-card featured">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="plan-header">
+            <span class="plan-product-tag" style="color: var(--epoch-accent);">Epoch Forms</span>
+            <h3 class="plan-name">Business Suite</h3>
+            <p class="plan-desc">For growing organizations automating high-volume document pipelines.</p>
+          </div>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-price" data-monthly="79">79</span>
+            <span class="plan-period">/ month</span>
+          </div>
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Up to 2,500 form pages processed / mo</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Encrypted corporate data vault connectors</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Chrome extension & REST API access</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Zero-retention cryptographic guarantee</span>
+            </li>
+          </ul>
+          <button class="btn btn-epoch" data-open-modal="epoch-forms" style="width: 100%;">
+            Try Epoch Forms Free
+          </button>
+        </div>
+
+        <!-- Tier 3: Gemini Mesh -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <span class="plan-product-tag" style="color: var(--mesh-accent);">Gemini Mesh</span>
+            <h3 class="plan-name">Enterprise Mesh</h3>
+            <p class="plan-desc">Dedicated multi-agent runtime for mission-critical engineering.</p>
+          </div>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-price" data-monthly="299">299</span>
+            <span class="plan-period">/ cluster / mo</span>
+          </div>
+          <ul class="plan-features-list">
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Unlimited concurrent agent DAG orchestrations</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Private VPC / On-Premise container deployment</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Deterministic guardrail policy engine</span>
+            </li>
+            <li class="plan-feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>24/7 dedicated solutions architect & 99.99% SLA</span>
+            </li>
+          </ul>
+          <button class="btn btn-outline-mesh" data-open-modal="gemini-mesh" style="width: 100%;">
+            Request Enterprise Access
+          </button>
+        </div>
+      </div>
+
+      <!-- Unified "Talk to Us" Banner -->
+      <div class="cta-banner-card">
+        <div class="cta-banner-text">
+          <h3 class="cta-banner-title">Need a custom enterprise deployment?</h3>
+          <p class="cta-banner-desc">
+            Speak directly with our applied AI research and systems architecture team. We help schools, growing firms, and global enterprises deploy safe AI with confidence.
+          </p>
+        </div>
+        <div>
+          <button class="btn btn-primary btn-lg" data-open-modal="general" id="btnBannerTalkToUs">
+            Talk to an AI Architect
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       GLOBAL FOOTER
+       ================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a href="#hero" class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="12 2 2 8.5 2 15.5 12 22 22 15.5 22 8.5 12 2"></polygon>
+              </svg>
+            </div>
+            <span>VALENCE AI</span>
+          </a>
+          <p class="footer-desc">
+            Practical, safe, and adaptive AI systems for learning, productivity, and enterprise automation.
+          </p>
+          <div class="footer-status-pill">
+            <span class="status-dot"></span>
+            <span>All Systems Operational (99.99%)</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Products</h4>
+          <ul class="footer-links-list">
+            <li><a href="#class-mode" class="footer-link">Class Mode (Tutoring)</a></li>
+            <li><a href="#epoch-forms" class="footer-link">Epoch Forms (Extraction)</a></li>
+            <li><a href="#gemini-mesh" class="footer-link">Gemini Mesh (Orchestration)</a></li>
+            <li><a href="#pricing" class="footer-link">Pricing & Packaging</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Platform & Docs</h4>
+          <ul class="footer-links-list">
+            <li><a href="#mesh-developer" class="footer-link">API Reference</a></li>
+            <li><a href="#mesh-developer" class="footer-link">Python & TS SDKs</a></li>
+            <li><a href="#values" class="footer-link">Safety Guardrails</a></li>
+            <li><a href="#values" class="footer-link">Architecture Whitepaper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links-list">
+            <li><a href="#values" class="footer-link">About Valence</a></li>
+            <li><a href="#trust" class="footer-link">Security & Trust</a></li>
+            <li><a href="#trust" class="footer-link">Compliance (SOC2/HIPAA)</a></li>
+            <li><a href="#pricing" class="footer-link">Careers (Hiring!)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal & Privacy</h4>
+          <ul class="footer-links-list">
+            <li><a href="#trust" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#trust" class="footer-link">Terms of Service</a></li>
+            <li><a href="#trust" class="footer-link">Responsible AI Charter</a></li>
+            <li><a href="#trust" class="footer-link">Security Vulnerability Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Valence Cognition Inc. All rights reserved. Built with precision for applied AI.
+        </div>
+        <div class="footer-social-links">
+          <a href="#" class="social-icon-btn" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="X Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================
+       INTERACTIVE CONTACT / REQUEST ACCESS MODAL
+       ================================================================= -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Request Product Access & Consultation</h3>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="contactRequestForm">
+          <div class="form-group">
+            <label class="form-label" for="userWorkEmail">Work or Academic Email *</label>
+            <input type="email" class="form-input" id="userWorkEmail" placeholder="sarah@institution.org" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userFullName">Full Name *</label>
+            <input type="text" class="form-input" id="userFullName" placeholder="Dr. Sarah Chen" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Products of Interest (Select all that apply) *</label>
+            <div class="form-checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="product" value="class-mode">
+                <span><strong>Class Mode</strong> — AI-Powered Personalized Learning</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="product" value="epoch-forms">
+                <span><strong>Epoch Forms</strong> — Multimodal Form Auto-Filling Agent</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="product" value="gemini-mesh">
+                <span><strong>Gemini Mesh</strong> — Enterprise Multi-Agent Orchestration</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userOrgType">Organization Type</label>
+            <select class="form-select" id="userOrgType">
+              <option value="enterprise">Enterprise / High-Growth Tech</option>
+              <option value="education">K-12 School / University / District</option>
+              <option value="healthcare">Healthcare / Clinical Research</option>
+              <option value="legal">Legal & Compliance</option>
+              <option value="individual">Individual Student / Educator</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userMessage">Tell us about your use case (optional)</label>
+            <textarea class="form-textarea" id="userMessage" rows="3" placeholder="Briefly describe what you're building or automating..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            Confirm & Request Sandbox Access
+          </button>
+        </form>
+
+        <!-- Success Handshake State -->
+        <div class="modal-success-screen" id="modalSuccessScreen">
+          <div class="modal-success-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h4 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem;">Access Request Handshake Complete</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            Thank you! Your encrypted sandbox token has been generated. A member of our applied AI engineering team will contact you within 2 business hours with credentials.
+          </p>
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('modalCloseBtn').click();">
+            Return to Portfolio
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
