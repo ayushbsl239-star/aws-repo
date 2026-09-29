@@ -1,7 +1,14 @@
 # Dependencies
 node_modules/
+.venv/
+venv/
 __pycache__/
 *.pyc
+
+# Database and local storage
+backend/data/*.db
+backend/storage/
+scratch/
 
 # Build outputs
 dist/
@@ -22,3 +29,4 @@ htmlcov/
 # OS artifacts
 .DS_Store
 Thumbs.db
+

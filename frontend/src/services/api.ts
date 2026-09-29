@@ -237,11 +237,19 @@ export const api = {
       method: 'POST',
       body: JSON.stringify({ text }),
     }),
-  presignDocument: (fileName: string, fileType: string, category: string) =>
-    request<{ upload_url: string; s3_key: string; fields: Record<string, string> }>('/documents/presign', {
+  presignDocument: async (fileName: string, fileType: string, category: string) => {
+    if (import.meta.env.VITE_APP_MODE === 'local') {
+      return {
+        upload_url: '',
+        s3_key: `local_${Date.now()}_${fileName}`,
+        fields: {},
+      };
+    }
+    return request<{ upload_url: string; s3_key: string; fields: Record<string, string> }>('/documents/presign', {
       method: 'POST',
       body: JSON.stringify({ file_name: fileName, file_type: fileType, category }),
-    }),
+    });
+  },
   processDocument: (s3Key: string, category: string, rawText?: string) =>
     request<{ text: string; analysis: any }>('/documents/process', {
       method: 'POST',

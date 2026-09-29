@@ -1,11 +1,10 @@
 """
-PDF Report Generator for AI Adaptive Interview Coach.
-Produces a clean, professional, multi-page PDF summary suitable for download.
+PDF Report Generator for AI Adaptive Interview Coach using ReportLab.
+Produces a clean, professional PDF assessment summary suitable for candidate download.
 """
 import io
 import time
 from typing import Any, Dict, List
-
 
 def generate_simple_pdf_bytes(
     candidate_name: str,
@@ -16,96 +15,125 @@ def generate_simple_pdf_bytes(
     report_data: Dict[str, Any],
     questions: List[Dict[str, Any]],
 ) -> bytes:
-    """
-    Generates a standards-compliant PDF file using a pure Python minimal PDF generator.
-    Creates structured pages with title, score, competency tables, and 7-day plan.
-    """
-    buffer = io.BytesIO()
-    
-    # We will generate a structured text-based PDF format
-    lines = [
-        "%PDF-1.4",
-        "%âãÏÓ",
-        "1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj",
-        "2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj",
-        "3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >> endobj",
-        "4 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj",
-    ]
+    """Generates PDF report bytes using ReportLab."""
+    try:
+        from reportlab.lib.pagesizes import letter
+        from reportlab.lib import colors
+        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
-    # Build PDF stream content
-    stream_content = []
-    stream_content.append("BT")
-    stream_content.append("/F1 20 Tf")
-    stream_content.append("50 740 Td")
-    stream_content.append("(AI Adaptive Interview Coach - Assessment Report) Tj")
-    
-    stream_content.append("/F1 12 Tf")
-    stream_content.append("0 -30 Td")
-    clean_name = candidate_name.replace("(", "").replace(")", "")
-    stream_content.append(f"(Candidate: {clean_name}   |   Role: {role}   |   Experience: {experience}) Tj")
-    
-    stream_content.append("0 -20 Td")
-    stream_content.append(f"(Date: {time.strftime('%Y-%m-%d %H:%M:%S UTC')}   |   Status: Completed) Tj")
+        buffer = io.BytesIO()
+        doc = SimpleDocTemplate(
+            buffer,
+            pagesize=letter,
+            rightMargin=36,
+            leftMargin=36,
+            topMargin=36,
+            bottomMargin=36
+        )
 
-    stream_content.append("/F1 16 Tf")
-    stream_content.append("0 -35 Td")
-    stream_content.append(f"(Interview Readiness Score: {readiness_score} / 100) Tj")
-    
-    stream_content.append("/F1 10 Tf")
-    stream_content.append("0 -18 Td")
-    stream_content.append("(\\(Note: This score reflects performance against the objective interview rubric; not a hiring probability.\\)) Tj")
+        styles = getSampleStyleSheet()
+        title_style = ParagraphStyle(
+            'ReportTitle',
+            parent=styles['Heading1'],
+            fontName='Helvetica-Bold',
+            fontSize=20,
+            leading=24,
+            textColor=colors.HexColor('#1e1b4b')
+        )
+        subtitle_style = ParagraphStyle(
+            'ReportSubtitle',
+            parent=styles['Normal'],
+            fontName='Helvetica',
+            fontSize=10,
+            leading=14,
+            textColor=colors.HexColor('#475569')
+        )
+        section_style = ParagraphStyle(
+            'SectionTitle',
+            parent=styles['Heading2'],
+            fontName='Helvetica-Bold',
+            fontSize=13,
+            leading=17,
+            textColor=colors.HexColor('#4f46e5'),
+            spaceBefore=12,
+            spaceAfter=6
+        )
+        body_style = ParagraphStyle(
+            'BodyTextCustom',
+            parent=styles['Normal'],
+            fontName='Helvetica',
+            fontSize=9.5,
+            leading=13.5,
+            textColor=colors.HexColor('#1e293b')
+        )
 
-    # Competency breakdown
-    stream_content.append("/F1 14 Tf")
-    stream_content.append("0 -30 Td")
-    stream_content.append("(Competency Performance Breakdown:) Tj")
-    stream_content.append("/F1 11 Tf")
-    
-    for skill_name, data in list(skill_profile.items())[:6]:
-        score_val = data.get("current_score", data) if isinstance(data, dict) else data
-        clean_skill = str(skill_name).replace("(", "").replace(")", "")
-        stream_content.append("0 -16 Td")
-        stream_content.append(f"(- {clean_skill}: {score_val} / 10.0) Tj")
+        story = []
 
-    # Key Strengths & Areas
-    stream_content.append("/F1 14 Tf")
-    stream_content.append("0 -30 Td")
-    stream_content.append("(Key Strengths & Development Areas:) Tj")
-    stream_content.append("/F1 10 Tf")
-    for s in report_data.get("strengths", ["Demonstrated strong logical structure"])[:3]:
-        clean_s = str(s).replace("(", "").replace(")", "")[:80]
-        stream_content.append("0 -15 Td")
-        stream_content.append(f"(+ Strength: {clean_s}) Tj")
-    for w in report_data.get("key_development_areas", ["Deepen trade-off analysis under scale"])[:3]:
-        clean_w = str(w).replace("(", "").replace(")", "")[:80]
-        stream_content.append("0 -15 Td")
-        stream_content.append(f"(- Growth Focus: {clean_w}) Tj")
+        # Title Block
+        story.append(Paragraph("AI Adaptive Interview Coach — Candidate Assessment Report", title_style))
+        story.append(Spacer(1, 4))
+        story.append(Paragraph(
+            f"<b>Candidate:</b> {candidate_name} &nbsp;|&nbsp; <b>Role:</b> {role} ({experience}) &nbsp;|&nbsp; <b>Date:</b> {time.strftime('%Y-%m-%d %H:%M')}",
+            subtitle_style
+        ))
+        story.append(Spacer(1, 8))
+        story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#cbd5e1'), spaceBefore=4, spaceAfter=12))
 
-    # 7-day improvement schedule
-    stream_content.append("/F1 14 Tf")
-    stream_content.append("0 -30 Td")
-    stream_content.append("(Recommended 7-Day Personalized Improvement Plan:) Tj")
-    stream_content.append("/F1 9 Tf")
-    plan = report_data.get("personalized_improvement_plan", {}).get("seven_day_schedule", [])
-    for item in plan[:7]:
-        day_num = item.get("day", 1)
-        topic = str(item.get("topic", "")).replace("(", "").replace(")", "")[:35]
-        task = str(item.get("task", "")).replace("(", "").replace(")", "")[:55]
-        stream_content.append("0 -14 Td")
-        stream_content.append(f"(Day {day_num}: {topic} - {task}) Tj")
+        # Readiness Score Box
+        score_html = f"""
+        <table width="100%" bgcolor="#f8fafc" style="border: 1px solid #e2e8f0; padding: 10px;">
+          <tr>
+            <td>
+              <font size="14" color="#4f46e5"><b>Interview Readiness Score: {readiness_score} / 100</b></font><br/><br/>
+              <font size="8.5" color="#64748b"><i>Disclaimer: This score reflects performance against this platform's objective technical interview rubric. It is not a hiring probability.</i></font>
+            </td>
+          </tr>
+        </table>
+        """
+        story.append(Paragraph(score_html, body_style))
+        story.append(Spacer(1, 10))
 
-    stream_content.append("ET")
-    
-    full_stream = "\n".join(stream_content).encode("latin-1", errors="replace")
-    stream_obj = f"5 0 obj << /Length {len(full_stream)} >>\nstream\n"
-    
-    buffer.write("\n".join(lines).encode("latin-1") + b"\n")
-    buffer.write(stream_obj.encode("latin-1"))
-    buffer.write(full_stream)
-    buffer.write(b"\nendstream\nendobj\n")
-    
-    xref_offset = buffer.tell()
-    buffer.write(b"xref\n0 6\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000115 00000 n \n0000000216 00000 n \n0000000287 00000 n \n")
-    buffer.write(f"trailer << /Size 6 /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF".encode("latin-1"))
-    
-    return buffer.getvalue()
+        # Competencies Table
+        story.append(Paragraph("Competency Performance Breakdown", section_style))
+        table_data = [["Competency / Skill", "Rolling Score", "Status"]]
+        for skill, val in list(skill_profile.items())[:8]:
+            score_num = val.get("current_score", val) if isinstance(val, dict) else val
+            status = "Strong" if score_num >= 7.5 else ("Proficient" if score_num >= 5.0 else "Needs Practice")
+            table_data.append([str(skill), f"{score_num} / 10.0", status])
+
+        if len(table_data) > 1:
+            t = Table(table_data, colWidths=[240, 140, 160])
+            t.setStyle(TableStyle([
+                ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#4f46e5')),
+                ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+                ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0,0), (-1,0), 9.5),
+                ('BOTTOMPADDING', (0,0), (-1,0), 6),
+                ('BACKGROUND', (0,1), (-1,-1), colors.HexColor('#f8fafc')),
+                ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#cbd5e1')),
+                ('FONTNAME', (0,1), (-1,-1), 'Helvetica'),
+                ('FONTSIZE', (0,1), (-1,-1), 9),
+            ]))
+            story.append(t)
+            story.append(Spacer(1, 10))
+
+        # Feedback & Action Plan
+        story.append(Paragraph("Key Strengths & Growth Areas", section_style))
+        strengths = report_data.get("strengths", ["Demonstrated clear logical structure in answers."])
+        developments = report_data.get("key_development_areas", report_data.get("weak_areas", ["Deepen trade-off analysis."]))
+
+        str_text = "<b>Strengths:</b><br/>" + "<br/>".join([f"• {s}" for s in strengths[:4]])
+        dev_text = "<br/><br/><b>Development Areas:</b><br/>" + "<br/>".join([f"• {d}" for d in developments[:4]])
+        story.append(Paragraph(str_text + dev_text, body_style))
+        story.append(Spacer(1, 10))
+
+        # Build PDF document
+        doc.build(story)
+        return buffer.getvalue()
+
+    except Exception as e:
+        # Minimal pure PDF fallback
+        buffer = io.BytesIO()
+        content = f"%PDF-1.4\n1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj\n3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >> endobj\n4 0 obj << /Length 50 >> stream\nBT /F1 12 Tf 50 700 Td (Interview Report - {candidate_name}) Tj ET\nendstream\nendobj\nxref\n0 5\n0000000000 65535 f \ntrailer << /Root 1 0 R >>\n%%EOF"
+        return content.encode("utf-8")

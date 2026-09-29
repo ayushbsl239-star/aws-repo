@@ -1,24 +1,33 @@
-# Core AWS SDK and runtime
-boto3>=1.34.0
-botocore>=1.34.0
+# Local FastAPI Web Framework & Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+python-multipart>=0.0.9
 
 # Schema and Validation
 pydantic>=2.6.0
 pydantic-core>=2.16.0
 
-# Document processing
-pypdf>=4.0.0
-python-docx>=1.1.0
-
-# Security and JWT
+# Database and Security
+sqlalchemy>=2.0.0
+argon2-cffi>=23.1.0
 pyjwt[crypto]>=2.8.0
 cryptography>=42.0.0
 
-# HTTP and server utilities
+# Document Processing & PDF Generation
+pypdf>=4.0.0
+python-docx>=1.1.0
+reportlab>=4.1.0
+
+# HTTP utilities
 requests>=2.31.0
+
+# Optional AWS SDK (retained for CDK/IaC deployment references if needed)
+boto3>=1.34.0
+botocore>=1.34.0
 
 # Testing and evaluation benchmarks
 pytest>=8.0.0
 pytest-mock>=3.12.0
 pytest-cov>=4.1.0
 numpy>=1.26.0
+
