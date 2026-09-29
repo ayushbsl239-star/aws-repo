@@ -1,0 +1,31 @@
+{
+  "name": "ai-adaptive-interview-coach",
+  "version": "1.0.0",
+  "description": "AI Adaptive Interview Coach - AWS Innovation Challenge 2026",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "pytest backend/tests",
+    "benchmark:backend": "python backend/tests/evaluation/benchmark.py",
+    "cdk:synth": "cd infra/cdk && npm run synth",
+    "cdk:deploy": "cd infra/cdk && npm run deploy",
+    "cdk:destroy": "cd infra/cdk && npm run destroy"
+  },
+  "keywords": [
+    "aws",
+    "bedrock",
+    "generative-ai",
+    "agentic-ai",
+    "dynamodb",
+    "polly",
+    "transcribe",
+    "cognito",
+    "react",
+    "vite",
+    "hackathon-2026"
+  ],
+  "author": "AWS Innovation Challenge Candidate",
+  "license": "MIT"
+}

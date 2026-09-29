@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+cdk.out/
+cdk-outputs.json
+
+# Test & coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environment secrets
+.env
+.env.local
+.env.production
+
+# OS artifacts
+.DS_Store
+Thumbs.db
