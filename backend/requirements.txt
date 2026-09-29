@@ -6,6 +6,7 @@ python-multipart>=0.0.9
 # Schema and Validation
 pydantic>=2.6.0
 pydantic-core>=2.16.0
+email-validator>=2.1.0
 
 # Database and Security
 sqlalchemy>=2.0.0
