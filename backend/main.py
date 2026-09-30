@@ -527,26 +527,31 @@ def submit_answer(
     prev_diff = current_q.difficulty
     target_competencies = json.loads(interview.target_competencies) if interview.target_competencies else [current_q.skill]
 
-    if interview.current_question_number >= interview.question_limit:
-        action = "END_INTERVIEW"
-        next_diff = prev_diff
-        next_comp = current_q.skill
-        reason = f"Configured question limit reached ({interview.question_limit} questions). Synthesizing report."
-    elif raw_score >= 8.0:
+    raw_score = float(eval_result.get("overall_score", 7.0))
+    score_100 = int(round(raw_score * 10)) if raw_score <= 10.0 else int(round(raw_score))
+
+    if score_100 >= 75:
+        level = "STRONG"
         action = "INCREASE_DIFFICULTY"
         next_diff = min(5, prev_diff + 1)
         next_comp = current_q.skill
-        reason = f"Strong answer ({raw_score}/10). Escalating difficulty level to {next_diff}."
-    elif raw_score >= 5.0:
+        reason = f"Strong answer ({score_100}/100); increasing complexity to difficulty {next_diff}"
+    elif score_100 >= 45:
+        level = "MEDIUM"
         action = "MAINTAIN_DIFFICULTY"
         next_diff = prev_diff
         next_comp = current_q.skill
-        reason = f"Solid answer ({raw_score}/10). Maintaining difficulty level {next_diff}."
+        reason = f"Medium answer ({score_100}/100); maintaining difficulty level {next_diff} for related concepts"
     else:
+        level = "WEAK"
         action = "DECREASE_DIFFICULTY"
         next_diff = max(1, prev_diff - 1)
         next_comp = current_q.skill
-        reason = f"Skill gap identified ({raw_score}/10). Lowering difficulty to {next_diff} to test core principles."
+        reason = f"Weak answer ({score_100}/100); reducing difficulty to {next_diff} for foundational concepts"
+
+    if interview.current_question_number >= interview.question_limit:
+        action = "END_INTERVIEW"
+        reason = f"Configured question limit reached ({interview.question_limit} questions). Synthesizing report."
 
     current_q.agent_decision = action
 
@@ -571,6 +576,9 @@ def submit_answer(
         interview.final_report_json = json.dumps(report_res)
         db.commit()
 
+        diff_labels = {1: "foundational", 2: "easy", 3: "medium", 4: "hard", 5: "expert"}
+        print(f"\nADAPTIVE_DECISION:\nscore={score_100}\nlevel={level}\nprevious_skill={current_q.skill}\nnext_difficulty={diff_labels.get(next_diff, 'medium')}\nreason=\"{reason}\"\nselected_question_id=COMPLETED\n", flush=True)
+
         return {
             "accepted": True,
             "interview_status": "COMPLETED",
@@ -579,6 +587,8 @@ def submit_answer(
             "report_ready": True,
             "debug_info": {
                 "previous_score": raw_score,
+                "score_100": score_100,
+                "level": level,
                 "skill": current_q.skill,
                 "current_rolling_skill_score": new_score,
                 "difficulty": f"{prev_diff} -> {next_diff}",
@@ -621,6 +631,11 @@ def submit_answer(
     interview.current_question_number = next_q_num
     db.commit()
 
+    diff_labels = {1: "foundational", 2: "easy", 3: "medium", 4: "hard", 5: "expert"}
+    next_diff_label = diff_labels.get(next_diff, "medium")
+
+    print(f"\nADAPTIVE_DECISION:\nscore={score_100}\nlevel={level}\nprevious_skill={current_q.skill}\nnext_difficulty={next_diff_label}\nreason=\"{reason}\"\nselected_question_id={next_q_id}\n", flush=True)
+
     return {
         "accepted": True,
         "interview_status": "ACTIVE",
@@ -635,12 +650,15 @@ def submit_answer(
         },
         "debug_info": {
             "previous_score": raw_score,
+            "score_100": score_100,
+            "level": level,
             "skill": current_q.skill,
             "current_rolling_skill_score": new_score,
             "difficulty": f"{prev_diff} -> {next_diff}",
             "decision": action,
             "reason": reason,
             "next_competency": next_comp,
+            "selected_question_id": next_q_id,
             "ai_engine": ai_provider.engine_name,
             "mode": "LOCAL AGENTIC",
         }

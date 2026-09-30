@@ -2,6 +2,7 @@ import json
 import logging
 import requests
 import re
+import random
 from typing import Dict, List, Any, Optional
 
 logger = logging.getLogger("ai_provider")
@@ -14,6 +15,11 @@ QUESTION_BANKS = {
         "Data Structures & Algorithms": [
             {
                 "difficulty": 1,
+                "question": "What is the difference between an Array and a Singly Linked List in memory layout and search time complexity?",
+                "expected_concepts": ["Contiguous memory vs pointers", "O(1) array access by index", "O(N) linked list search", "Dynamic sizing"],
+            },
+            {
+                "difficulty": 1,
                 "question": "What is the time and space complexity of searching in a hash table versus a binary search tree? Explain collision resolution.",
                 "expected_concepts": ["O(1) average hash lookup", "O(N) worst case hash", "O(log N) BST search", "Chaining", "Open Addressing"],
             },
@@ -23,9 +29,19 @@ QUESTION_BANKS = {
                 "expected_concepts": ["Two pointers", "Slow pointer step 1", "Fast pointer step 2", "Collision condition", "O(N) time O(1) space"],
             },
             {
+                "difficulty": 2,
+                "question": "Explain the difference between Breadth-First Search (BFS) and Depth-First Search (DFS) on a graph. What data structures do they use?",
+                "expected_concepts": ["Queue for BFS", "Stack/Recursion for DFS", "Level order traversal", "Shortest path in unweighted graph"],
+            },
+            {
                 "difficulty": 3,
                 "question": "Design a LRU (Least Recently Used) Cache with O(1) time complexity for get and put operations.",
                 "expected_concepts": ["Doubly Linked List", "HashMap", "Head/Tail dummy nodes", "Eviction policy", "O(1) pointer updates"],
+            },
+            {
+                "difficulty": 3,
+                "question": "How do you find the median of a streaming data set in real-time using two heaps?",
+                "expected_concepts": ["Max-Heap for lower half", "Min-Heap for upper half", "Heap rebalancing", "O(log N) insertion", "O(1) median query"],
             },
             {
                 "difficulty": 4,
@@ -33,9 +49,19 @@ QUESTION_BANKS = {
                 "expected_concepts": ["Priority Queue / Min Heap", "Relaxation step", "Greedy strategy", "O((V + E) log V) with binary heap", "O(E + V log V) Fibonacci"],
             },
             {
+                "difficulty": 4,
+                "question": "How would you implement a Trie data structure for fast prefix searching and auto-complete in a search engine?",
+                "expected_concepts": ["Trie Node map", "IsEndOfString flag", "Prefix matching O(L)", "Memory optimization", "Ternary Search Tree"],
+            },
+            {
                 "difficulty": 5,
                 "question": "How do you implement a distributed consensus algorithm like Raft or Paxos? Explain leader election and log replication consistency.",
                 "expected_concepts": ["Leader Election", "Log Matching", "Quorum requirement", "Term numbers", "Heartbeats and timeouts"],
+            },
+            {
+                "difficulty": 5,
+                "question": "Design a cache-oblivious B-Tree data structure and analyze its I/O transfers across modern CPU cache lines.",
+                "expected_concepts": ["Cache lines", "Memory hierarchy", "van Emde Boas layout", "O(log_B N) I/O operations", "Cache oblivious optimization"],
             },
         ],
         "System Design": [
@@ -45,9 +71,19 @@ QUESTION_BANKS = {
                 "expected_concepts": ["Vertical scale-up hardware", "Horizontal scale-out nodes", "Stateless application design", "Cost trade-offs", "Single point of failure"],
             },
             {
+                "difficulty": 1,
+                "question": "What is a Load Balancer and how does it distribute traffic using Round Robin versus Least Connections algorithms?",
+                "expected_concepts": ["Load balancer Layer 4 vs Layer 7", "Round robin distribution", "Least connections", "Health checks", "SSL termination"],
+            },
+            {
                 "difficulty": 2,
                 "question": "Explain how database index data structures like B-Trees optimize disk I/O during range queries.",
                 "expected_concepts": ["B-Tree branching factor", "Block / Page disk alignment", "Sequential access vs random I/O", "Index selectivity", "Balanced depth"],
+            },
+            {
+                "difficulty": 2,
+                "question": "What is the CAP Theorem? Compare CP and AP distributed database systems with concrete examples.",
+                "expected_concepts": ["Consistency", "Availability", "Partition Tolerance", "Eventual consistency", "Cassandra vs MongoDB"],
             },
             {
                 "difficulty": 3,
@@ -55,14 +91,46 @@ QUESTION_BANKS = {
                 "expected_concepts": ["Token Bucket algorithm", "Sliding Window Log / Counter", "Redis atomic operations", "429 Too Many Requests", "Distributed ratelimiting"],
             },
             {
+                "difficulty": 3,
+                "question": "Design a distributed caching strategy using Redis. How do you handle cache invalidation and cache stampede?",
+                "expected_concepts": ["Cache-Aside pattern", "Cache stampede lock", "TTL expiration", "Eviction policies LRU/LFU", "Redis Sentinel/Cluster"],
+            },
+            {
                 "difficulty": 4,
                 "question": "Architect a URL shortening service like Bitly handling 10,000 writes per second. Discuss hashing algorithms, base62 encoding, and cache strategies.",
                 "expected_concepts": ["Base62 encoding", "Auto-increment ID or Snowflake key generator", "Redis caching layer", "Database sharding", "Read heavy 10:1 ratio"],
             },
             {
+                "difficulty": 4,
+                "question": "How do you architect an idempotent payment processing workflow with database transactions and message queues?",
+                "expected_concepts": ["Idempotency key", "Two-Phase Commit / Saga Pattern", "Dead Letter Queue", "Database ACID locking", "Outbox pattern"],
+            },
+            {
                 "difficulty": 5,
                 "question": "Design a globally distributed real-time notification engine with strict sub-second delivery SLA and idempotent deduplication.",
                 "expected_concepts": ["WebSocket persistent connections", "Message Queues (Kafka/RabbitMQ)", "Eventual consistency", "Deduplication keys", "Push notification gateways"],
+            },
+        ],
+        "Coding Quality": [
+            {
+                "difficulty": 1,
+                "question": "Explain the Single Responsibility Principle (SRP) and how adhering to it improves software maintainability.",
+                "expected_concepts": ["Single reason to change", "High cohesion", "Low coupling", "Refactoring monolithic methods"],
+            },
+            {
+                "difficulty": 2,
+                "question": "What is Dependency Injection and how does it decoupling components to facilitate unit testing with mocks?",
+                "expected_concepts": ["Dependency Inversion Principle", "Inversion of Control", "Mocking interfaces", "Test isolation"],
+            },
+            {
+                "difficulty": 3,
+                "question": "Compare Object-Oriented Design patterns: Strategy Pattern versus Factory Pattern. When should each be applied?",
+                "expected_concepts": ["Strategy behavioral pattern", "Factory creational pattern", "Encapsulating algorithms", "Interface polymorphism"],
+            },
+            {
+                "difficulty": 4,
+                "question": "How do you refactor legacy code safely using the Feathers Working Effectively with Legacy Code methodology and Characterization Tests?",
+                "expected_concepts": ["Characterization tests", "Seams for testing", "Refactoring steps", "Regression safety net"],
             },
         ],
     },
@@ -74,17 +142,49 @@ QUESTION_BANKS = {
                 "expected_concepts": ["WHERE filters rows before aggregation", "HAVING filters aggregated groups", "GROUP BY dependency", "Aggregate functions COUNT/SUM"],
             },
             {
+                "difficulty": 1,
+                "question": "What is the difference between INNER JOIN, LEFT JOIN, and FULL OUTER JOIN? Give a scenario for each.",
+                "expected_concepts": ["INNER JOIN matching rows", "LEFT JOIN keep all left rows", "FULL OUTER JOIN keep all rows", "NULL handling"],
+            },
+            {
                 "difficulty": 2,
                 "question": "How do SQL Window Functions like ROW_NUMBER(), RANK(), and DENSE_RANK() differ when handling ties?",
                 "expected_concepts": ["OVER clause", "PARTITION BY", "ROW_NUMBER sequential no ties", "RANK skips positions after tie", "DENSE_RANK consecutive ranks"],
+            },
+            {
+                "difficulty": 2,
+                "question": "Explain database indexing and how composite indexes work when querying multiple columns.",
+                "expected_concepts": ["B-Tree index", "Leftmost column rule", "Index scan vs table scan", "Covering index"],
             },
             {
                 "difficulty": 3,
                 "question": "How do you calculate candidate customer churn over a rolling 30-day window using SQL window frame clauses?",
                 "expected_concepts": ["ROWS BETWEEN 29 PRECEDING AND CURRENT ROW", "DATE_TRUNC / DATEADD", "SUM/COUNT over partition", "Left Join active users"],
             },
-        ]
-    }
+            {
+                "difficulty": 4,
+                "question": "How do you optimize a slow SQL query that performs a full table scan on 50 million rows?",
+                "expected_concepts": ["EXPLAIN ANALYZE", "Adding selective index", "Partition pruning", "Avoiding SELECT *", "Join order optimization"],
+            },
+        ],
+        "Statistics": [
+            {
+                "difficulty": 1,
+                "question": "What is the difference between Mean, Median, and Mode? When is Median preferred over Mean?",
+                "expected_concepts": ["Mean arithmetic average", "Median 50th percentile", "Skewed distributions", "Outlier sensitivity"],
+            },
+            {
+                "difficulty": 2,
+                "question": "Explain p-value in hypothesis testing. What does a p-value of 0.03 mean relative to an alpha of 0.05?",
+                "expected_concepts": ["Probability of observed data under H0", "Alpha significance threshold", "Reject null hypothesis", "Type I error"],
+            },
+            {
+                "difficulty": 3,
+                "question": "How do you design an A/B test for a feature launch? How do you determine sample size and guard against peeking bias?",
+                "expected_concepts": ["Sample size calculation", "Statistical power (1-beta)", "Minimum Detectable Effect (MDE)", "Sequential testing / Bonferroni correction"],
+            },
+        ],
+    },
 }
 
 class AIProvider:
@@ -220,12 +320,18 @@ class AIProvider:
 
         selected = None
         if comp_questions:
-            # Find matching difficulty
+            # 1. Exact difficulty match not already asked
             matches = [q for q in comp_questions if q["difficulty"] == difficulty and q["question"] not in questions_already_asked]
+            # 2. Adjacent difficulty match (+- 1)
+            if not matches:
+                matches = [q for q in comp_questions if abs(q["difficulty"] - difficulty) <= 1 and q["question"] not in questions_already_asked]
+            # 3. Any question in competency not asked
             if not matches:
                 matches = [q for q in comp_questions if q["question"] not in questions_already_asked]
+            
             if matches:
-                selected = matches[0]
+                # Dynamically choose one matching question so two users don't get exact duplicate sequences
+                selected = random.choice(matches)
 
         if not selected:
             # Universal fallbacks by difficulty
@@ -426,6 +532,7 @@ Do NOT output markdown outside JSON.
     def _evaluate_answer_ollama(
         self,
         role: str,
+        experience: str,
         question: str,
         skill: str,
         difficulty: int,
@@ -473,5 +580,4 @@ Return a strictly JSON object:
         questions_history: List[Dict[str, Any]],
         skill_profile: Dict[str, Any],
     ) -> Dict[str, Any]:
-        # Fall back gracefully if prompt synthesis takes too long
         return self._generate_report_rule_engine(role, experience, questions_history, skill_profile)
